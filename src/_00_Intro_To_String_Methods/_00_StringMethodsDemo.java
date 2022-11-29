@@ -21,7 +21,7 @@ public class _00_StringMethodsDemo {
         System.out.println("Is " + str.charAt(2) + " a letter: " + Character.isAlphabetic(str.charAt(2)));
         System.out.println("Is " + str.charAt(2) + " a digit: " + Character.isDigit(str.charAt(2)));
         
-        // Converting a String to a number
+        // Converting a String to a number vv
         // Do you remember Integer.parseInt()? or Double.parseDouble()?
         
         // Converting a number to a String
