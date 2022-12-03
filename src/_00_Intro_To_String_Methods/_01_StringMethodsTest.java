@@ -30,7 +30,6 @@ class _01_StringMethodsTest {
     @Test
     void testNumeralSum() {
         assertEquals(0, _01_StringMethods.numeralSum(""));
-        assertEquals(5, _01_StringMethods.numeralSum("11111"));
         assertEquals(3, _01_StringMethods.numeralSum("a1b2c"));
         assertEquals(45, _01_StringMethods.numeralSum("x1x2x3x4x5x6x7x8x9x"));
     }

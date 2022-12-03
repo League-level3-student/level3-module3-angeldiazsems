@@ -71,12 +71,15 @@ public class _00_StringMethodsDemo {
         // Find the number of times a substring (or character) appears in a string
         // Method #1: starting from the first character on the left, keep
         //            searching for the character until the end of the string
-        String substring = "to";
+        String substring = "e";
         int numOccurances = 0;
         index = str.indexOf("to");
-        while( index != -1 ) {
+        while( index != -1 ) { //while youve found something
             numOccurances++;
-            index = str.indexOf(substring, index + substring.length());
+            index = str.indexOf("e", index + substring.length());
+            //found at 0, total is 7
+            //0+7 = 7
+            //find the next one at index 7
         }
         
         System.out.println("1. The substring '" + substring + "' appeared: " + numOccurances +
@@ -86,7 +89,7 @@ public class _00_StringMethodsDemo {
         // Method #2: remove the substring, get the number of characters,
         //            removed, then divide by the number of characters in the
         //            substring
-        substring = "to";
+        substring = "e";
         String removedSubstring = str.replace(substring, "");
         numOccurances = (str.length() - removedSubstring.length()) / substring.length();
         

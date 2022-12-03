@@ -1,5 +1,6 @@
 package _00_Intro_To_String_Methods;
 
+import java.util.Arrays;
 import java.util.Base64;
 
 /*
@@ -41,18 +42,15 @@ public class _01_StringMethods {
 		} else {
 			return s2;
 		}
-		
-		
+
 	}
 
 	// If String s contains the word "underscores", change all of the spaces
 	// to underscores
 	public static String formatSpaces(String s) {
-		if(s.contains("underscores")) {
+		if (s.contains("underscores")) {
 			s = s.replace(' ', '_');
 		}
-		
-		
 		return s;
 	}
 
@@ -61,25 +59,52 @@ public class _01_StringMethods {
 	// You cannot assume there are no extra spaces around the name, but you can
 	// assume there is only one space between the first and last name
 	public static String lineLeader(String s1, String s2, String s3) {
-		
-		//String s1
-		
-		
+
+		String First[] = s1.split(" ");
+		String Second[] = s2.split(" ");
+		String Third[] = s3.split(" ");
+
+		if (First[1].compareTo(Second[1]) < 0 && First[1].compareTo(Third[1]) < 0) {
+			return s1;
+		} else if (Second[1].compareTo(First[1]) < 0 && Second[1].compareTo(Third[1]) < 0) {
+			return s2;
+		} else if (Third[1].compareTo(First[1]) < 0 && Third[1].compareTo(Second[1]) < 0) {
+			return s3;
+		}
 		return null;
+		
 	}
 
 	// Return the sum of all numerical digits in the String
 	public static int numeralSum(String s) {
-		return 0;
+		int sum = 0;
+		char[] charArr = s.toCharArray();
+		for (int i = 0; i < charArr.length(); i++) {
+			boolean check = Character.isDigit(Arrays.toString(charArr.c));
+			if (check = true) {
+				System.out.println(s.charAt(i));
+				
+			}
+		}
+		
+		return sum;
 	}
 
 	// Return the number of times String substring appears in String s
 	public static int substringCount(String s, String substring) {
-		return 0;
+		String removed = s.replace(substring, "");
+		int count = (s.length()-removed.length())/substring.length();
+		
+		return count;
 	}
 
 	// Call Utilities.encrypt at the bottom of this file to encrypt String s
 	public static String encrypt(String s, char key) {
+		
+		String e  = encrypt(s, key);
+		
+		
+		
 		return null;
 	}
 
