@@ -59,7 +59,11 @@ public class _01_StringMethods {
 	// You cannot assume there are no extra spaces around the name, but you can
 	// assume there is only one space between the first and last name
 	public static String lineLeader(String s1, String s2, String s3) {
-
+		s1 = s1.trim();
+		s2 = s2.trim();
+		s3 = s3.trim();
+		//get rid of extra space^
+		
 		String First[] = s1.split(" ");
 		String Second[] = s2.split(" ");
 		String Third[] = s3.split(" ");
@@ -71,66 +75,101 @@ public class _01_StringMethods {
 		} else if (Third[1].compareTo(First[1]) < 0 && Third[1].compareTo(Second[1]) < 0) {
 			return s3;
 		}
-		return null;
-		
+		else{
+			return null;
+		}
+
 	}
 
 	// Return the sum of all numerical digits in the String
 	public static int numeralSum(String s) {
 		int sum = 0;
 		char[] charArr = s.toCharArray();
-		for (int i = 0; i < charArr.length(); i++) {
-			boolean check = Character.isDigit(Arrays.toString(charArr.c));
-			if (check = true) {
-				System.out.println(s.charAt(i));
-				
+		for (int i = 0; i < charArr.length; i++) {
+			boolean check = Character.isDigit(charArr[i]);
+			if (check) {
+				sum += Character.getNumericValue(charArr[i]);
 			}
 		}
-		
+
 		return sum;
 	}
 
 	// Return the number of times String substring appears in String s
 	public static int substringCount(String s, String substring) {
 		String removed = s.replace(substring, "");
-		int count = (s.length()-removed.length())/substring.length();
-		
+		// Make a string that has everything except the substring
+		int count = (s.length() - removed.length()) / substring.length();
+		// With the new String, subtract its length to the orignal Strings length
+		// Once you get some number, divide it by the substrings length
+		// From that you can see how many times the subtring is in there
+
 		return count;
 	}
 
 	// Call Utilities.encrypt at the bottom of this file to encrypt String s
 	public static String encrypt(String s, char key) {
-		
-		String e  = encrypt(s, key);
-		
-		
-		
-		return null;
+		byte[] bite = s.getBytes();
+		byte bight = (byte)key;
+		String e = Utilities.encrypt(bite, bight);
+		return e;
 	}
 
 	// Call Utilities.decrypt at the bottom of this file to decrypt the
 	// cyphertext (encrypted text)
 	public static String decrypt(String s, char key) {
-		return null;
+
+		byte bight = (byte)key;
+		String e = Utilities.decrypt(s, bight);
+		return e;
 	}
 
 	// Return the number of words in String s that end with String substring
 	// You can assume there are no punctuation marks between words
 	public static int wordsEndsWithSubstring(String s, String substring) {
-		return 0;
+		int count = 0;
+		int subLength = substring.length(); //2
+		String[] words = s.split(" ");	
+		for(int i = 0; i < words.length; i++) {
+			int wordLength = words[i].length(); //5
+			
+			if() {
+				count++;
+			}
+		}
+		return count;
 	}
 
 	// Given String s, return the number of characters between the first
 	// occurrence of String substring and the final occurrence
 	// You can assume that substring will appear at least twice
 	public static int distance(String s, String substring) {
-		return 0;
+		int firstIndex = s.indexOf(substring);
+		int lastIndex = s.lastIndexOf(substring);
+		int distance = 0;
+		char[] charr = s.toCharArray();
+		System.out.println("First: "+firstIndex);
+		System.out.println("Last :"+lastIndex);
+		for(int i = firstIndex; i < charr.length; i++) {
+			if(i != lastIndex) {
+				distance++;
+			}
+			
+		}
+		return distance;
 	}
 
 	// Return true if String s is a palindrome
 	// palindromes are words or phrases are read the same forward as backward.
 	// HINT: ignore/remove all punctuation and spaces in the String
 	public static boolean palindrome(String s) {
+		s.trim();
+		s.replace(".", "");
+		s.replace("?", "");
+		s.replace("!", "");
+		s.replace(":", "");
+		s.replace("-", "");
+		
 		return true;
 	}
 }
