@@ -145,17 +145,18 @@ public class _01_StringMethods {
 	// You can assume that substring will appear at least twice
 	public static int distance(String s, String substring) {
 		int firstIndex = s.indexOf(substring);
+		firstIndex = firstIndex+substring.length();
+		//^making it so firstIndex is the value of the last letter
+		// of the substring, instead of the first letter
+		
 		int lastIndex = s.lastIndexOf(substring);
-		int distance = 0;
-		char[] charr = s.toCharArray();
-		System.out.println("First: "+firstIndex);
+		System.out.println("First :"+firstIndex);
 		System.out.println("Last :"+lastIndex);
-		for(int i = firstIndex; i < charr.length; i++) {
-			if(i != lastIndex) {
-				distance++;
-			}
-			
-		}
+
+		int distance = (lastIndex-firstIndex);
+		//minus 1 because we need to count the 0th digit
+		System.out.println("Distance :"+distance);
+
 		return distance;
 	}
 
