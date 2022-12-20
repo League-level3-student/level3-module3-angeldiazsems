@@ -20,7 +20,9 @@ public class _01_TheWave {
      */
     
     public static ArrayList<String> wave(String str) {
+        StringBuilder bob = new StringBuilder(str);
         
+        Character.isAlphabetic(bob.charAt(0));
         return null;
     }
 }

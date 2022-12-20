@@ -4,18 +4,28 @@ package _01_StringBuilder;
 public class _03_StringBuilder {
     
     public static String append(String str, char[] characters) {
-        return null;
+       StringBuilder bob = new StringBuilder(str);
+       str = bob.append(characters).toString();
+       
+    	return str;
     }
     
     public static String reverse(String str) {
-        return null;
+    	StringBuilder bob = new StringBuilder(str);
+    	str = bob.reverse().toString();
+        return str;
+        
     }
     
     public static String insert(String str, int index, char newChar) {
-        return null;
+    	StringBuilder bob = new StringBuilder(str);
+    	str = bob.insert(index, newChar).toString();
+        return str;
     }
     
     public static String delete(String str, int startIndex, int endIndex) {
-        return null;
+    	StringBuilder bob = new StringBuilder(str);
+    	str = bob.delete(startIndex, endIndex).toString();
+        return str;
     }
 }

@@ -62,8 +62,8 @@ public class _01_StringMethods {
 		s1 = s1.trim();
 		s2 = s2.trim();
 		s3 = s3.trim();
-		//get rid of extra space^
-		
+		// get rid of extra space^
+
 		String First[] = s1.split(" ");
 		String Second[] = s2.split(" ");
 		String Third[] = s3.split(" ");
@@ -74,8 +74,7 @@ public class _01_StringMethods {
 			return s2;
 		} else if (Third[1].compareTo(First[1]) < 0 && Third[1].compareTo(Second[1]) < 0) {
 			return s3;
-		}
-		else{
+		} else {
 			return null;
 		}
 
@@ -110,7 +109,7 @@ public class _01_StringMethods {
 	// Call Utilities.encrypt at the bottom of this file to encrypt String s
 	public static String encrypt(String s, char key) {
 		byte[] bite = s.getBytes();
-		byte bight = (byte)key;
+		byte bight = (byte) key;
 		String e = Utilities.encrypt(bite, bight);
 		return e;
 	}
@@ -119,7 +118,7 @@ public class _01_StringMethods {
 	// cyphertext (encrypted text)
 	public static String decrypt(String s, char key) {
 
-		byte bight = (byte)key;
+		byte bight = (byte) key;
 		String e = Utilities.decrypt(s, bight);
 		return e;
 	}
@@ -128,12 +127,9 @@ public class _01_StringMethods {
 	// You can assume there are no punctuation marks between words
 	public static int wordsEndsWithSubstring(String s, String substring) {
 		int count = 0;
-		int subLength = substring.length(); //2
-		String[] words = s.split(" ");	
-		for(int i = 0; i < words.length; i++) {
-			int wordLength = words[i].length(); //5
-			
-			if() {
+		String[] words = s.split(" ");
+		for (int i = 0; i < words.length; i++) {
+			if (words[i].contains(substring) && words[i].endsWith(substring)) {
 				count++;
 			}
 		}
@@ -145,33 +141,53 @@ public class _01_StringMethods {
 	// You can assume that substring will appear at least twice
 	public static int distance(String s, String substring) {
 		int firstIndex = s.indexOf(substring);
-		firstIndex = firstIndex+substring.length();
-		//^making it so firstIndex is the value of the last letter
+		firstIndex = firstIndex + substring.length() - 1;
+		// ^making it so firstIndex is the index of the last letter
 		// of the substring, instead of the first letter
 		
+		int distance = 0;
 		int lastIndex = s.lastIndexOf(substring);
-		System.out.println("First :"+firstIndex);
-		System.out.println("Last :"+lastIndex);
+		char[] ch = s.toCharArray();
+		for(int i = firstIndex+1; i < lastIndex; i++) {
+			distance++;
+		}
+		System.out.println("First :" + firstIndex);
+		System.out.println("Last :" + lastIndex);
+		System.out.println("Distance :" + distance);
 
-		int distance = (lastIndex-firstIndex);
-		//minus 1 because we need to count the 0th digit
-		System.out.println("Distance :"+distance);
-
-		return distance;
+		return distance; 
 	}
 
 	// Return true if String s is a palindrome
 	// palindromes are words or phrases are read the same forward as backward.
 	// HINT: ignore/remove all punctuation and spaces in the String
 	public static boolean palindrome(String s) {
-		s.trim();
-		s.replace(".", "");
-		s.replace("?", "");
-		s.replace("!", "");
-		s.replace(":", "");
-		s.replace("-", "");
+		s = s.trim();
+		s = s.replace (".", "");
+		s = s.replace("?", "");
+		s = s.replace("!", "");
+		s = s.replace(":", "");
+		s = s.replace("-", "");
+		s = s.replace(",", "");
+		s = s.replace(" ", "");
+		s = s.toLowerCase();
 		
-		return true;
+		String normal = s;
+		String backward = "";
+		for(int i = normal.length()-1; i >= 0; i--) {
+			backward+=normal.charAt(i);
+			
+		}
+		System.out.println("Backward: "+backward);
+		System.out.println("Forward: "+normal);
+
+		
+		
+		if(normal.equals(backward)) {
+			return true;
+
+		}
+		return false;
 	}
 }
 
