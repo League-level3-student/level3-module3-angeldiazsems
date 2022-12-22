@@ -6,8 +6,7 @@ public class _03_StringBuilder {
     public static String append(String str, char[] characters) {
        StringBuilder bob = new StringBuilder(str);
        str = bob.append(characters).toString();
-       
-    	return str;
+    return str;
     }
     
     public static String reverse(String str) {
