@@ -88,7 +88,7 @@ public class _00_RegularExpressionsDemo {
          */
         regEx = "[,].+[x]";
         output = testString.replaceAll(regEx, "_");
-        System.out.println(output);
+        System.out.println("EE"+output);
         
         /*
          * Replace a word that has n or more letters

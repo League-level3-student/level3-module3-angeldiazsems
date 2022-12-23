@@ -17,21 +17,19 @@ public class _01_TheWave {
 	 */
 
 	public static ArrayList<String> wave(String str) {
-		StringBuilder bob = new StringBuilder(str);
 		ArrayList<String> wav = new ArrayList<String>();
+		StringBuilder bob = new StringBuilder(str);
 
 		for (int i = 0; i < bob.length(); i++) {
-			System.out.println(bob.length());
-			char uppercase = bob.toString().toUpperCase().charAt(i); 
-			//char lowercase = bob.toString().toLowerCase().charAt(i);
-		
+			StringBuilder bob2= new StringBuilder(str); //starts from scratch
+			char uppercase = bob2.toString().toUpperCase().charAt(i); 			
 			
-			if (Character.isAlphabetic(bob.charAt(i))) {
+			if (Character.isAlphabetic(bob2.charAt(i))) {
 				
-				bob.setCharAt(i, uppercase);
-				wav.add(bob.toString());
+				bob2.setCharAt(i, uppercase);
+				wav.add(bob2.toString());
 				
-				System.out.println("Result :"+bob.toString());
+				System.out.println("Result :"+bob2.toString());
 			}
 		}
 		return wav;
